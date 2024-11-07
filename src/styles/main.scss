@@ -1,5 +1,69 @@
-$corFundo: #00f7ff;
+@use 'hero';
+@use 'variaveis';
+
+@font-face{
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face{
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Bold.woff2);
+    font-weight: 700;
+}
+
+@mixin text($fontSize: 16px){ //Mixin para ajuste de texto.
+    font-size: $fontSize;;
+    line-height: $fontSize + 10px;
+    color: variaveis.$corTextoPrincipal;
+}
+
+@mixin tittle($fontSize: 40px){
+    @include text($fontSize);
+    color: variaveis.$corTextoSecundario;
+}
+
+//Acima está declarado váriaveis e mixins.
+//Abaixo está escrito o css da página.
+
+* { //Reset CSS.
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body{
-    background-color: $corFundo;
+    background-color: variaveis.$corFundo; //execução da variável.
+    font-family: Avenir, sans-serif;
+}
+
+.text--big{ //Classe para textos grandes.
+    @include text(18px); //Execução do mixin.
+}
+
+.text{ //Classe para textos normais(médios).
+    @include text;
+}
+
+.text--small{ //Classe para textos pequenos.
+    @include text(12px);
+}
+
+.tittle--big{
+    @include tittle(44px);
+}
+
+.tittle{
+    @include tittle;
+}
+
+.tittle--small{
+    @include tittle(28px);
+}
+
+.link-text{
+    @include text(18px);
+    color: variaveis.$corTextoSecundario;
+    text-decoration: underline;
 }
