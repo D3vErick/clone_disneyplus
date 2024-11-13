@@ -1,0 +1,45 @@
+@use 'variaveis';
+
+.shows{
+    padding: 2vw 5.6vw;
+    min-height: 50vw;
+
+    &__list{ //Display com 3 colunas e 2 linhas cada, quando não ativo, fica escondido.
+        margin-top: 44px;
+        display: none;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+
+        &--active{ //Classe para revelar a seção escondida.
+            display: grid;
+        }
+
+        &__item{ //Tamanho da imagem.
+            img{
+                max-width: 100%;
+                border-radius: 4px;
+            }
+        }
+    }
+
+    &__tabs{ //Abas
+        display: flex;
+        justify-content: center;
+
+        &__button{ //Botões das abas
+            color: variaveis.$corTextoSecundario;
+            font-size: 20px;
+            border: none;
+            padding-bottom: 5px;
+            background: none;
+            text-transform: uppercase;
+            margin: 0 1vw;
+            cursor: pointer;
+            border-bottom: 5px solid transparent;
+
+            &--active{ //Indicador para quando a respectiva aba estiver ativa.
+                border-color: variaveis.$corTextoSecundario;
+            }
+        }
+    }
+}
