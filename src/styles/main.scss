@@ -3,6 +3,7 @@
 @use 'shows';
 @use 'plans';
 @use 'avaliable-devices';
+@use 'faq';
 
 @font-face{
     font-family: Avenir;
@@ -126,4 +127,8 @@ body{
             justify-content: center;
         }
     }
+}
+
+.paddingR8{
+    padding-left: 26px;
 }
